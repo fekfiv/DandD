@@ -9,13 +9,23 @@ router.post('/character', async (req, res) => {
       name, race, gender, age, hairColor, classes, characterStory,
     } = req.body;
     const { user } = req.session;
-    console.log('*********', req.body);
-    const character = Character.create({
+    const character = await Character.create({
       name, race, gender, age, hairColor, classes, characterStory, userId: user.id,
     });
-    res.redirect('/profile');
+    res.json(character);
   } catch (error) {
     console.log(error);
+  }
+});
+
+router.delete('/charcter/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const isDeleted = await Character.destroy({ where: { id } });
+    res.sendStatus(isDeleted ? 200 : 400);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
   }
 });
 

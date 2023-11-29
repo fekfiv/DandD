@@ -6,7 +6,7 @@ module.exports = function Form({ races, classes }) {
       <h4 className="form-header">Создать персонажа</h4>
       <div className="formCard">
         <div className="name">
-          <input placeholder="Введите имя..." name="name" type="text" className="name" />
+          <input placeholder="Введите имя..." name="name" type="text" />
         </div>
         <div className="race">
           <select size="1" name="race">
@@ -24,7 +24,7 @@ module.exports = function Form({ races, classes }) {
           Женский
         </div>
         <div className="age">
-          <input placeholder="Укажите возраст..." name="age" type="text" className="age" />
+          <input placeholder="Укажите возраст..." name="age" type="text" />
         </div>
         <div className="hairColor">
           <select size="1" name="hairColor">
