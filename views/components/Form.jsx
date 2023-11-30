@@ -38,7 +38,7 @@ module.exports = function Form({ races, classes }) {
         </div>
         <div className="classes">
           <select size="1" name="classes">
-            <option selected disabled>Выберите класс</option>
+            <option selected disabled>Выберите</option>
             {classes.map((el) => <option value={el}>{el}</option>)}
           </select>
         </div>

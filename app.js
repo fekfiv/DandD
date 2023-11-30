@@ -20,7 +20,7 @@ const sessionConfig = {
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 10 * 60 * 10000,
+    maxAge: 10 * 60 * 10000000,
     httpOnly: true,
   },
 };

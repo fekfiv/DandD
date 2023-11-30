@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable linebreak-style */
 const form = document.querySelector('#form');
 const container = document.querySelector('#container');
@@ -26,19 +27,26 @@ form.addEventListener('submit', async (e) => {
     const result = await response.json();
     const div = document.createElement('div');
     div.classList.add('card');
-    div.style.width = '18rem';
-    div.id = `character-${result.id}`;
     div.innerHTML = `
-            <div class="card-body">
-            <h5 class="card-">${result.name}</h5>
-            <p class="card-classes">${result.classes}</p>
-            <button id=${result.id} type="button" class="btn btn-delete">
-            Удалить
-            </button>
-            <button id=${result.id} type="button" class="btn btn-edit">
-           Изменить
-            </button>
-        </div>`;
+    <div class="card-body">
+    <div class="name">
+      <h5 data-id=${result.id} class="card-name">${result.name}</h5>
+      <input type="text" name="name" data-id=${result.id} value=${result.name} />
+    </div>
+    <div class="classes">
+      <p data-id=${result.id} class="card-classes">${result.classes}</p>
+      <input type="text" name="class" data-id=${result.id} value=${result.classes} />
+    </div>
+    <div class="cardBtn">
+      <button data-id=${result.id} id=${result.id} type="button" class="btn btn-delete">
+        Удалить
+      </button>
+      <button data-id=${result.id} id=${result.id} type="button" class="btn btn-edit">
+        Изменить
+      </button>
+    </div>
+  </div>
+  `;
 
     container.appendChild(div);
 
@@ -59,13 +67,48 @@ container.addEventListener('click', async (e) => {
   if (e.target.tagName === 'BUTTON') {
     if (e.target.classList.value.includes('delete')) {
       const { id } = e.target;
-      const response = await fetch(`/api/charcter/${id}`, {
+      const response = await fetch(`/api/character/${id}`, {
         method: 'DELETE',
       });
 
       if (response.status === 200) {
         const card = e.target.closest('.card');
         container.removeChild(card);
+      }
+    } else if (e.target.classList.value.includes('edit')) {
+      const id = Number(e.target.id);
+
+      const inputName = e.target.parentElement.parentElement.children[0].children[1];
+      const inputclass = e.target.parentElement.parentElement.children[1].children[1];
+
+      const formData = {
+        name: inputName.value,
+        class: inputclass.value,
+      };
+
+      const response = await fetch(`/api/character/${id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.status === 200) {
+        const result = await response.json();
+
+        const h5 = document.querySelectorAll('.card-classes');
+        for (let i = 0; i < h5.length; i++) {
+          if (h5[i].dataset.id === e.target.dataset.id) {
+            h5[i].textContent = result.classes;
+          }
+        }
+
+        const p = document.querySelectorAll('.card-name');
+        for (let i = 0; i < p.length; i++) {
+          if (p[i].dataset.id === e.target.dataset.id) {
+            p[i].textContent = result.name;
+          }
+        }
       }
     }
   }
