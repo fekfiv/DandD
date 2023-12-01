@@ -9,24 +9,26 @@ function NavBar({ user }) {
           {user ? (
             <>
               <div>
-                <h4>D&D_Create_Character</h4>
+                <a className="nav-link" href="/"><h4>D&D_Create_Character</h4></a>
               </div>
               <div className="menu">
-                <a className="nav-link" href="/profile">{user.login}</a>
+                <a className="nav-link" href="/profile">
+                  Тут ваш профиль,
+                  {' '}
+                  {user.login}
+                </a>
                 <a id="logout" className="nav-link" href="/logout">Logout</a>
-                <a className="nav-link" href="/">Home </a>
               </div>
 
             </>
           ) : (
             <>
               <div>
-                <h4>D&D_Create_Character</h4>
+                <a className="nav-link" href="/"><h4>D&D_Create_Character</h4></a>
               </div>
               <div className="menu">
                 <a className="nav-link" href="/login">Login</a>
                 <a className="nav-link" href="/registration">Registration</a>
-                <a className="nav-link" href="/">Home</a>
               </div>
 
             </>

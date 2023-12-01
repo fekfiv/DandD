@@ -1,7 +1,8 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable linebreak-style */
 const form = document.querySelector('#form');
-const container = document.querySelector('#container');
+const container = document.querySelector('#containerCard');
+const uselessText = document.querySelector('.uselessText');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -25,6 +26,10 @@ form.addEventListener('submit', async (e) => {
   });
   if (response.status === 200) {
     const result = await response.json();
+    if (uselessText) {
+      uselessText.classList.add('hidden');
+    }
+
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
@@ -51,11 +56,11 @@ form.addEventListener('submit', async (e) => {
     container.appendChild(div);
 
     e.target.name.value = '';
-    e.target.race.value = '';
+    e.target.race.value = 'Выберите расу';
     e.target.gender.value = '';
     e.target.age.value = '';
-    e.target.hairColor.value = '';
-    e.target.classes.value = '';
+    e.target.hairColor.value = 'Выберите цвет волос';
+    e.target.classes.value = 'Выберите класс';
     e.target.characterStory.value = '';
   } else {
     console.error('АШИБКА');

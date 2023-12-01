@@ -38,12 +38,12 @@ module.exports = function Form({ races, classes }) {
         </div>
         <div className="classes">
           <select size="1" name="classes">
-            <option selected disabled>Выберите</option>
+            <option selected disabled>Выберите класс</option>
             {classes.map((el) => <option value={el}>{el}</option>)}
           </select>
         </div>
         <div className="characterStory">
-          <textarea name="characterStory" />
+          <textarea cols={30} rows={10} placeholder="Напишите историю персонажа ..." name="characterStory" />
         </div>
         <button type="submit" className="btn btn-primary">Добавить</button>
       </div>

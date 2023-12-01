@@ -11,13 +11,13 @@ function Register({ user }) {
           <form className="formRegistration" action="/users/registration" method="POST">
             <div className="form">
               <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">
+                <label htmlFor="exampleInputName1" className="form-label">
                   <input
                     placeholder="Введите логин..."
                     name="login"
                     className="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
+                    id="exampleInputName1"
+                    aria-describedby="NameHelp"
                   />
                 </label>
               </div>
@@ -44,7 +44,7 @@ function Register({ user }) {
                 </label>
               </div>
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn">
               Зарегистрироваться
             </button>
           </form>
