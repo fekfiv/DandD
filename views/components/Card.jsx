@@ -6,7 +6,7 @@ module.exports = function Card({ character }) {
       <div className="card-body">
         <div className="name">
           <h5 data-id={character.id} className="card-name">
-            Имя персонажа:
+            <u>Имя персонажа:</u>
             {' '}
             {character.name}
           </h5>
@@ -14,7 +14,7 @@ module.exports = function Card({ character }) {
         </div>
         <div className="classes">
           <p data-id={character.id} className="card-classes">
-            Класс персонажа:
+            <u>Класс персонажа:</u>
             {' '}
             {character.classes}
           </p>

@@ -34,26 +34,26 @@ form.addEventListener('submit', async (e) => {
     div.classList.add('card');
     div.innerHTML = `
     <div class="card-body">
-    <div class="name">
-      <h5 data-id=${result.id} class="card-name">Имя персонажа: ${result.name}</h5>
-      <input type="text" name="name" data-id=${result.id} value=${result.name} />
-    </div>
-    <div class="classes">
-      <p data-id=${result.id} class="card-classes">Класс персонажа: ${result.classes}</p>
-      <input type="text" name="class" data-id=${result.id} value=${result.classes} />
-    </div>
-    <div class="cardBtn">
-      <button data-id=${result.id} id=${result.id} type="button" class="btn btn-delete">
-        Удалить
-      </button>
-      <button data-id=${result.id} id=${result.id} type="button" class="btn btn-edit">
-        Изменить
-      </button>
+      <div class="name">
+        <h5 data-id=${result.id} class="card-name"><u>Имя персонажа:</u> ${result.name}</h5>
+        <input size={15} type="text" name="name" data-id=${result.id} value=${result.name} />
+      </div>
+      <div class="classes">
+        <p data-id=${result.id} class="card-classes"><u>Класс персонажа:</u> ${result.classes}</p>
+        <input size={15} type="text" name="class" data-id=${result.id} value=${result.classes} />
+      </div>
+      <div class="cardBtn">
+        <button data-id=${result.id} id=${result.id} type="button" class="btn btn-delete">
+          Удалить
+        </button>
+        <button data-id=${result.id} id=${result.id} type="button" class="btn btn-edit">
+          Изменить
+        </button>
+      </div>
     </div>
     <div class="image">
-        тут в будущем будет капча
+      тут в будущем будет капча
     </div>
-  </div>
   `;
 
     container.appendChild(div);

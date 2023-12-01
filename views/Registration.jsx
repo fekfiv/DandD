@@ -5,7 +5,7 @@ const Layout = require('./Layout');
 function Register({ user }) {
   return (
     <Layout user={user}>
-      <div className="card" style={{ width: '18rem' }}>
+      <div className="card login" style={{ width: '18rem' }}>
         <h4 className="card-header">Registration</h4>
         <div className="card-body">
           <form className="formRegistration" action="/users/registration" method="POST">

@@ -52,10 +52,14 @@ router.get('/profile', async (req, res) => {
     const classes = results1.map((el) => el.name);
 
     const { user } = req.session;
-    const characters = await Character.findAll({ where: { userId: user.id } });
-    renderTemplate(Profile, {
-      characters, user, races, classes,
-    }, res);
+    if (user) {
+      const characters = await Character.findAll({ where: { userId: user.id } });
+      renderTemplate(Profile, {
+        characters, user, races, classes,
+      }, res);
+    } else {
+      res.redirect('/login');
+    }
   } catch (error) {
     console.log(error);
   }

@@ -3,7 +3,7 @@ const React = require('react');
 module.exports = function Form({ races, classes }) {
   return (
     <form action="/api/character" id="form" className="mb-3" method="POST">
-      <h4 className="form-header">Создать персонажа</h4>
+      <h4 className="form-header"><u>Создать персонажа</u></h4>
       <div className="formCard">
         <div className="name">
           <input placeholder="Введите имя..." name="name" type="text" />
@@ -15,7 +15,7 @@ module.exports = function Form({ races, classes }) {
           </select>
         </div>
         <div className="gender">
-          <b>Выберите пол</b>
+          <b><u>Выберите пол</u></b>
           <input name="gender" type="radio" value="male" />
           {' '}
           Мужской
@@ -45,8 +45,8 @@ module.exports = function Form({ races, classes }) {
         <div className="characterStory">
           <textarea cols={30} rows={10} placeholder="Напишите историю персонажа ..." name="characterStory" />
         </div>
-        <button type="submit" className="btn btn-primary">Добавить</button>
       </div>
+      <button type="submit" className="btn btn-primary">Добавить</button>
     </form>
   );
 };

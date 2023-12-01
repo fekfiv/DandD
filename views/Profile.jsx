@@ -14,11 +14,9 @@ module.exports = function Profile({
           <div className="cardForm">
             <div className="textForm">
               <p>
-                Lorem ipsum dolor sit amet consectetur,
-                adipisicing elit.
-                Earum consectetur est hic ipsum natus, cum corrupti eos,
-                ipsa, dolor molestiae labore nisi aut nemo sed ut beatae fugiat
-                blanditiis tempora.
+                Именно тут создаются персонажи. Все легко и очень понятно.
+                Просто заполни все поля и увидишь, что произойдет. Также, в случае ошибки,
+                ты можешь исправить некоторые поля.
               </p>
               <div className="lists">
                 <ul className="list">
