@@ -20,9 +20,17 @@ module.exports = function Profile({
                 ipsa, dolor molestiae labore nisi aut nemo sed ut beatae fugiat
                 blanditiis tempora.
               </p>
-              <ul className="list">
-                {classes.map((el) => <li>{el}</li>)}
-              </ul>
+              <div className="lists">
+                <ul className="list">
+                  <li><u>Существующие классы</u></li>
+                  {classes.map((el) => <li>{el}</li>)}
+                </ul>
+                <ul className="list">
+                  <li><u>Существующие расы</u></li>
+                  {races.map((el) => <li>{el}</li>)}
+                </ul>
+              </div>
+
             </div>
             <Form races={races} classes={classes} />
           </div>

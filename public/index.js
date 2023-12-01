@@ -35,11 +35,11 @@ form.addEventListener('submit', async (e) => {
     div.innerHTML = `
     <div class="card-body">
     <div class="name">
-      <h5 data-id=${result.id} class="card-name">${result.name}</h5>
+      <h5 data-id=${result.id} class="card-name">Имя персонажа: ${result.name}</h5>
       <input type="text" name="name" data-id=${result.id} value=${result.name} />
     </div>
     <div class="classes">
-      <p data-id=${result.id} class="card-classes">${result.classes}</p>
+      <p data-id=${result.id} class="card-classes">Класс персонажа: ${result.classes}</p>
       <input type="text" name="class" data-id=${result.id} value=${result.classes} />
     </div>
     <div class="cardBtn">
@@ -49,6 +49,9 @@ form.addEventListener('submit', async (e) => {
       <button data-id=${result.id} id=${result.id} type="button" class="btn btn-edit">
         Изменить
       </button>
+    </div>
+    <div class="image">
+        тут в будущем будет капча
     </div>
   </div>
   `;
@@ -104,14 +107,14 @@ container.addEventListener('click', async (e) => {
         const h5 = document.querySelectorAll('.card-classes');
         for (let i = 0; i < h5.length; i++) {
           if (h5[i].dataset.id === e.target.dataset.id) {
-            h5[i].textContent = result.classes;
+            h5[i].textContent = `Класс персонажа: ${result.classes}`;
           }
         }
 
         const p = document.querySelectorAll('.card-name');
         for (let i = 0; i < p.length; i++) {
           if (p[i].dataset.id === e.target.dataset.id) {
-            p[i].textContent = result.name;
+            p[i].textContent = `Имя персонажа: ${result.name}`;
           }
         }
       }

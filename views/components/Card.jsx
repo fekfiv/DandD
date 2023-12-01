@@ -5,12 +5,20 @@ module.exports = function Card({ character }) {
     <div className="card">
       <div className="card-body">
         <div className="name">
-          <h5 data-id={character.id} className="card-name">{character.name}</h5>
-          <input type="text" name="name" data-id={character.id} value={character.name} />
+          <h5 data-id={character.id} className="card-name">
+            Имя персонажа:
+            {' '}
+            {character.name}
+          </h5>
+          <input size={15} type="text" name="name" data-id={character.id} value={character.name} />
         </div>
         <div className="classes">
-          <p data-id={character.id} className="card-classes">{character.classes}</p>
-          <input type="text" name="class" data-id={character.id} value={character.classes} />
+          <p data-id={character.id} className="card-classes">
+            Класс персонажа:
+            {' '}
+            {character.classes}
+          </p>
+          <input size={15} type="text" name="class" data-id={character.id} value={character.classes} />
         </div>
         <div className="cardBtn">
           <button data-id={character.id} id={character.id} type="button" className="btn btn-delete">
@@ -20,6 +28,9 @@ module.exports = function Card({ character }) {
             Изменить
           </button>
         </div>
+      </div>
+      <div className="image">
+        тут в будущем будет пикча
       </div>
     </div>
   );
